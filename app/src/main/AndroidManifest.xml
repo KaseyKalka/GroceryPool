@@ -20,7 +20,7 @@
         <activity android:name=".ui.login.RiderPage" />
         <activity android:name=".ui.login.DriverPage" />
         <activity
-            android:name=".ui.login.HomeScreeen"
+            android:name=".ui.login.HomeScreen"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
