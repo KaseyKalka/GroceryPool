@@ -1,6 +1,6 @@
 package com.it326.grocerypool.data;
 
-import com.it326.grocerypool.data.model.LoggedInUser;
+import com.it326.grocerypool.data.model.LoggedInUserOld;
 
 import java.io.IOException;
 
@@ -9,12 +9,12 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
-    public Result<LoggedInUser> login(String username, String password) {
+    public Result<LoggedInUserOld> login(String username, String password) {
 
         try {
             // TODO: handle loggedInUser authentication
-            LoggedInUser fakeUser =
-                    new LoggedInUser(
+            LoggedInUserOld fakeUser =
+                    new LoggedInUserOld(
                             java.util.UUID.randomUUID().toString(),
                             "Jane Doe");
             return new Result.Success<>(fakeUser);

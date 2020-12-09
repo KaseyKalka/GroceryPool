@@ -8,7 +8,7 @@ import android.util.Patterns;
 
 import com.it326.grocerypool.data.LoginRepository;
 import com.it326.grocerypool.data.Result;
-import com.it326.grocerypool.data.model.LoggedInUser;
+import com.it326.grocerypool.data.model.LoggedInUserOld;
 import com.it326.grocerypool.R;
 
 public class LoginViewModel extends ViewModel {
@@ -31,10 +31,10 @@ public class LoginViewModel extends ViewModel {
 
     public void login(String username, String password) {
         // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+        Result<LoggedInUserOld> result = loginRepository.login(username, password);
 
         if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
+            LoggedInUserOld data = ((Result.Success<LoggedInUserOld>) result).getData();
             loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
         } else {
             loginResult.setValue(new LoginResult(R.string.login_failed));
