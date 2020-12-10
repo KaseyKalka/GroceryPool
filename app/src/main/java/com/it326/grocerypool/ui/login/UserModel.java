@@ -1,20 +1,26 @@
 package com.it326.grocerypool.ui.login;
 
 public class UserModel {
-    private String email;
-    private String password;
+    String email;
+    String password;
+    UserType userType;
 
-    //Default Constructor needed for Firebase Database
+    //Needed for Firebase
     public UserModel(){
 
     }
 
-    public UserModel(String email, String password){
+    public UserModel(String email, String password, UserType userType){
         this.email = email;
         this.password = password;
+        this.userType = userType;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public UserType getUserType() {
+        return userType;
     }
 }
