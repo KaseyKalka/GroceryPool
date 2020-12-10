@@ -26,6 +26,11 @@
         <activity android:name=".ui.login.DriverSignUp" />
         <activity android:name=".ui.login.RiderPage" />
         <activity android:name=".ui.login.DriverPage" />
+        <activity android:name=".profile.ViewDriverProfile" />
+        <activity android:name=".profile.ViewRiderProfile" />
+        <activity android:name=".profile.RiderProfile" />
+        <activity android:name=".profile.DriverProfile" />
+
 
         <service android:name=".location.LocationService" />
 

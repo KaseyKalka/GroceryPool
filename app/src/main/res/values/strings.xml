@@ -22,4 +22,15 @@
     <string name="Calendar">Calendar</string>
     <string name="Messages">Messages</string>
     <string name="Profile">Profile</string>
+    <string name="save_changes">save changes</string>
+    <string name="image1">image1</string>
+    <string name="delete_account">delete account</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="Email">email</string>
+    <string name="new_or_old_password">New or Old Password</string>
+    <string name="image">image</string>
+    <string name="johncena_youcantcme_stfu">Johncena@YouCantCMe.stfu</string>
+    <string name="email2">email2</string>
+    <string name="sendimage">sendimage</string>
+    <string name="email">email2</string>
 </resources>
