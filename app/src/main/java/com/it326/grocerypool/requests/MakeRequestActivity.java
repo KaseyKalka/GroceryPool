@@ -28,13 +28,12 @@ public class MakeRequestActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                //TODO : Create database entry with user's email address
                 EditText address = findViewById(R.id.request_address_entry);
                 TimePicker timePicker = findViewById(R.id.request_time_picker);
                 DatePicker datePicker = findViewById(R.id.request_date_picker);
                 LocalDateTime dateTime = LocalDateTime.of(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(), timePicker.getHour(), timePicker.getMinute());
 
-                FirebaseDatabase.getInstance().getReference("Requests").push().setValue(new Request("[USER EMAIL]", address.getText().toString(), dateTime));
+                FirebaseDatabase.getInstance().getReference("Requests").push().setValue(new Request(getIntent().getExtras().getString("Email"), address.getText().toString(), dateTime.getYear(), dateTime.getMonthValue(), dateTime.getDayOfMonth(), dateTime.getHour(), dateTime.getMinute()));
             }
         });
     }

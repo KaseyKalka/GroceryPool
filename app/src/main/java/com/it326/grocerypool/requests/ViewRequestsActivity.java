@@ -1,8 +1,10 @@
 package com.it326.grocerypool.requests;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -15,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.it326.grocerypool.R;
 import com.it326.grocerypool.messaging.ChatMessageModel;
+
+import java.time.LocalDateTime;
 
 public class ViewRequestsActivity extends AppCompatActivity {
 
@@ -35,6 +39,7 @@ public class ViewRequestsActivity extends AppCompatActivity {
                         .build();
 
         adapter = new FirebaseListAdapter<Request>(options) {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             protected void populateView(@NonNull View v, @NonNull Request model, int position) {
                 //References to TextViews in request_list_item.xml
@@ -43,7 +48,7 @@ public class ViewRequestsActivity extends AppCompatActivity {
                 TextView requestsAddress = v.findViewById(R.id.requests_address);
 
                 requestsEmail.setText(model.getEmail());
-                requestsDateTime.setText(model.getDateTime().toString());
+                requestsDateTime.setText(LocalDateTime.of(model.year, model.month, model.day, model.hour, model.minute).toString());
                 requestsAddress.setText(model.getAddress());
             }
         };

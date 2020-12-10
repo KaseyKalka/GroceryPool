@@ -18,12 +18,13 @@ import com.it326.grocerypool.R;
 import com.it326.grocerypool.location.LocationService;
 import com.it326.grocerypool.messaging.MessagingBoardActivity;
 import com.it326.grocerypool.messaging.MessagingChoicesActivity;
+import com.it326.grocerypool.requests.ViewRequestsActivity;
 
 public class LoggedInUser extends AppCompatActivity {
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logged_in_user);
 
@@ -32,6 +33,7 @@ public class LoggedInUser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoggedInUser.this, MessagingChoicesActivity.class);
+                intent.putExtra("Email", getIntent().getExtras().getString("Email"));
                 startActivity(intent);
             }
         });

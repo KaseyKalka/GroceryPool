@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.it326.grocerypool">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.location.gps" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".messaging.PrivateMessagesActivity"></activity>
+        <activity android:name=".messaging.ViewPrivateMessagesActivity"></activity>
+        <activity android:name=".messaging.PrivateMessagesActivity" />
         <activity android:name=".messaging.MessagingChoicesActivity" />
         <activity android:name=".messaging.MessagingBoardActivity" />
         <activity android:name=".requests.ViewRequestsActivity" />
@@ -22,7 +27,7 @@
         <activity android:name=".ui.login.RiderPage" />
         <activity android:name=".ui.login.DriverPage" />
 
-        <service android:name=".location.LocationService"/>
+        <service android:name=".location.LocationService" />
 
         <activity
             android:name=".ui.login.HomeScreen"
@@ -35,6 +40,4 @@
         </activity>
     </application>
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-feature android:name="android.hardware.location.gps"/>
 </manifest>

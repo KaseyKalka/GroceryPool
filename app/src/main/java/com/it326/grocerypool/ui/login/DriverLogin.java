@@ -57,7 +57,7 @@ public class DriverLogin extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()) {
                     Intent intent = new Intent(DriverLogin.this, LoggedInUser.class);
-                    intent.putExtra("Username", email);
+                    intent.putExtra("Email", email);
                     intent.putExtra("User Type", UserType.DRIVER);
                     startActivity(intent);
                 }

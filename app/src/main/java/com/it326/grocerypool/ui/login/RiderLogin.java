@@ -57,7 +57,7 @@ public class RiderLogin extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()) {
                     Intent intent = new Intent(RiderLogin.this, LoggedInUser.class);
-                    intent.putExtra("Username", email);
+                    intent.putExtra("Email", email);
                     intent.putExtra("User Type", UserType.RIDER);
                     startActivity(intent);
                 }

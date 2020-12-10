@@ -22,7 +22,7 @@ public class MessagingBoardActivity extends AppCompatActivity {
     FirebaseListAdapter<ChatMessageModel> adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messaging_board);
 
@@ -34,7 +34,7 @@ public class MessagingBoardActivity extends AppCompatActivity {
                 EditText messageInput = findViewById(R.id.input);
 
                 if(!messageInput.getText().toString().equals(""))
-                    FirebaseDatabase.getInstance().getReference("Messages").push().setValue(new ChatMessageModel(messageInput.getText().toString(), "[NEEDS_USER_NAME]"));
+                    FirebaseDatabase.getInstance().getReference("Messages").push().setValue(new ChatMessageModel(messageInput.getText().toString(), getIntent().getExtras().getString("Email")));
                 else
                     return;
 
