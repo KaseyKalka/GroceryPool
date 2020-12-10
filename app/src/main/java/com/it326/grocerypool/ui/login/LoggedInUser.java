@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.it326.grocerypool.R;
-import com.it326.grocerypool.messaging.MessagingActivity;
+import com.it326.grocerypool.messaging.MessagingBoardActivity;
+import com.it326.grocerypool.messaging.MessagingChoicesActivity;
 
 public class LoggedInUser extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class LoggedInUser extends AppCompatActivity {
         messagesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoggedInUser.this, MessagingActivity.class);
+                Intent intent = new Intent(LoggedInUser.this, MessagingChoicesActivity.class);
                 startActivity(intent);
             }
         });

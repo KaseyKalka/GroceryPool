@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".messaging.MessagingActivity" />
+        <activity android:name=".messaging.PrivateMessagesActivity"></activity>
+        <activity android:name=".messaging.MessagingChoicesActivity" />
+        <activity android:name=".messaging.MessagingBoardActivity" />
         <activity android:name=".requests.ViewRequestsActivity" />
-        <activity android:name=".requests.MakeRequestActivity"/>
-        <activity android:name=".ui.login.LoggedInUser"></activity>
+        <activity android:name=".requests.MakeRequestActivity" />
+        <activity android:name=".ui.login.LoggedInUser" />
         <activity android:name=".ui.login.RiderSignUp" />
         <activity android:name=".ui.login.RiderLogin" />
         <activity android:name=".ui.login.DriverLogin" />

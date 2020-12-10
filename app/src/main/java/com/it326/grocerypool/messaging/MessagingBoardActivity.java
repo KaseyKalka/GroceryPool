@@ -17,14 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.it326.grocerypool.R;
 
-public class MessagingActivity extends AppCompatActivity {
+public class MessagingBoardActivity extends AppCompatActivity {
 
     FirebaseListAdapter<ChatMessageModel> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messaging);
+        setContentView(R.layout.activity_messaging_board);
 
         FloatingActionButton fab = findViewById(R.id.fab);
 
