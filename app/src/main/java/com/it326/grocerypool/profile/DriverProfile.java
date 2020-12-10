@@ -1,5 +1,6 @@
 package com.it326.grocerypool.profile;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,10 +12,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.it326.grocerypool.R;
 import com.it326.grocerypool.ui.login.HomeScreen;
+import com.it326.grocerypool.ui.login.LoggedInUser;
 import com.it326.grocerypool.ui.login.LoginViewModel;
+
+import org.w3c.dom.Text;
 
 public class DriverProfile extends AppCompatActivity {
 
@@ -24,48 +34,62 @@ public class DriverProfile extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-        //UserProfileView();
-    }
 
-    private void UserProfileView(){
-
-        final EditText email = findViewById(R.id.usernameEdit);
+        TextView email = findViewById(R.id.usernameEdit);
         final EditText password = findViewById(R.id.passwordEdit);
         final EditText password2 = findViewById(R.id.passwordEdit2);
-        final Button buttonDelete = findViewById(R.id.deletebutton);
-        final Button buttonSave = findViewById(R.id.savebutton);
 
-        TextWatcher afterTextChangedListener = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // ignore
-            }
+        email.setText(getIntent().getExtras().getString("Email"));
 
+        Button saveChangesButton = findViewById(R.id.savebutton);
+        saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // ignore
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                //loginViewModel.loginDataChanged(email.getText().toString(),
-                        //password.getText().toString());
-            }
-        };
-        email.addTextChangedListener(afterTextChangedListener);
-        password.addTextChangedListener(afterTextChangedListener);
-
-        buttonDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DriverProfile.this, HomeScreen.class));//TODO
+            public void onClick(View view) {
+                if(password.getText().toString().equals(password2.getText().toString())){
+                    Intent intent = new Intent(DriverProfile.this, LoggedInUser.class);
+                    intent.putExtra("String", getIntent().getExtras().getString("Email"));
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "New password and confirmation do not match", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
-        buttonSave.setOnClickListener(new View.OnClickListener() {
+        Button deleteProfileButton = findViewById(R.id.deletebutton);
+        deleteProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(DriverProfile.this, HomeScreen.class));
+            public void onClick(View view) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                Query query = database.getReference("Users").orderByChild("email").equalTo(getIntent().getExtras().getString("Email"));
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            dataSnapshot.getRef().removeValue();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                Intent intent = new Intent(DriverProfile.this, HomeScreen.class);
+                intent.putExtra("Email", getIntent().getExtras().getString("Email"));
+                startActivity(intent);
+            }
+        });
+
+        Button viewOtherProfileButton = findViewById(R.id.view_other_profile_button);
+        viewOtherProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DriverProfile.this, ViewOtherProfilePromptActivity.class);
+                intent.putExtra("Email", getIntent().getExtras().getString("Email"));
+                startActivity(intent);
             }
         });
     }

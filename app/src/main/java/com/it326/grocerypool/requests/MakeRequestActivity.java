@@ -3,6 +3,7 @@ package com.it326.grocerypool.requests;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,10 @@ public class MakeRequestActivity extends AppCompatActivity {
                 LocalDateTime dateTime = LocalDateTime.of(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(), timePicker.getHour(), timePicker.getMinute());
 
                 FirebaseDatabase.getInstance().getReference("Requests").push().setValue(new Request(getIntent().getExtras().getString("Email"), address.getText().toString(), dateTime.getYear(), dateTime.getMonthValue(), dateTime.getDayOfMonth(), dateTime.getHour(), dateTime.getMinute()));
+
+                Intent intent = new Intent(MakeRequestActivity.this, ViewRequestsActivity.class);
+                intent.putExtra("Email", getIntent().getExtras().getString("Email"));
+                startActivity(intent);
             }
         });
     }

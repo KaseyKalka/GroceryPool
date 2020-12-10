@@ -22,14 +22,5 @@ public class ViewRiderProfile extends AppCompatActivity {
         TextView usernameEditText = findViewById(R.id.emailView);
         String username = "Test"; //TODO
         usernameEditText.setText(username);
-
-        ImageView sendmess = findViewById(R.id.imageButton2);
-
-        sendmess.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ViewRiderProfile.this, PrivateMessagesActivity.class));
-            }
-        });
     }
 }

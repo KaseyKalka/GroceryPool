@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.187"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
-    <EditText
+    <TextView
         android:id="@+id/usernameEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -96,5 +96,15 @@
         app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/view_other_profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="View Other Profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/savebutton"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

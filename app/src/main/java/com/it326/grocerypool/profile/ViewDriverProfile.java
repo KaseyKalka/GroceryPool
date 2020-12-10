@@ -20,15 +20,8 @@ public class ViewDriverProfile extends AppCompatActivity {
         setContentView(R.layout.activity_other_user_profile);
 
         TextView usernameEditText = findViewById(R.id.emailView);
-        usernameEditText.setText("Dummy");//TODO
+        usernameEditText.setText(getIntent().getExtras().getString("Other Email"));
 
-        ImageView sendmess = findViewById(R.id.imageButton2);
 
-        sendmess.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ViewDriverProfile.this, PrivateMessagesActivity.class));
-            }
-        });
     }
 }

@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".messaging.ViewPrivateMessagesActivity"></activity>
+        <activity android:name=".profile.ViewOtherProfilePromptActivity"></activity>
+        <activity android:name=".messaging.ViewPrivateMessagesActivity" />
         <activity android:name=".messaging.PrivateMessagesActivity" />
         <activity android:name=".messaging.MessagingChoicesActivity" />
         <activity android:name=".messaging.MessagingBoardActivity" />
@@ -34,15 +35,13 @@
         <activity android:name=".profile.ViewRiderProfile" />
         <activity android:name=".profile.RiderProfile" />
         <activity android:name=".profile.DriverProfile" />
-        <activity android:name=".CalendarActivity"/>
-
+        <activity android:name=".CalendarActivity" />
 
         <service android:name=".location.LocationService" />
 
         <uses-library
             android:name="com.google.android.wearable"
             android:required="false" />
-
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
@@ -50,7 +49,6 @@
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
-
 
         <activity
             android:name=".ui.login.HomeScreen"

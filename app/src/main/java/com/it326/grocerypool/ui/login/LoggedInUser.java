@@ -14,10 +14,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.it326.grocerypool.CalendarActivity;
 import com.it326.grocerypool.R;
 import com.it326.grocerypool.location.LocationService;
 import com.it326.grocerypool.messaging.MessagingBoardActivity;
 import com.it326.grocerypool.messaging.MessagingChoicesActivity;
+import com.it326.grocerypool.profile.DriverProfile;
+import com.it326.grocerypool.requests.MakeRequestActivity;
 import com.it326.grocerypool.requests.ViewRequestsActivity;
 
 public class LoggedInUser extends AppCompatActivity {
@@ -33,6 +36,35 @@ public class LoggedInUser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoggedInUser.this, MessagingChoicesActivity.class);
+                intent.putExtra("Email", getIntent().getExtras().getString("Email"));
+                startActivity(intent);
+            }
+        });
+
+        Button createRideButton = findViewById(R.id.create_ride_button);
+        createRideButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoggedInUser.this, CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button profileButton = findViewById(R.id.Profile);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoggedInUser.this, DriverProfile.class);
+                intent.putExtra("Email", getIntent().getExtras().getString("Email"));
+                startActivity(intent);
+            }
+        });
+
+        Button requestsButton = findViewById(R.id.requests_button);
+        requestsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoggedInUser.this, MakeRequestActivity.class);
                 intent.putExtra("Email", getIntent().getExtras().getString("Email"));
                 startActivity(intent);
             }
