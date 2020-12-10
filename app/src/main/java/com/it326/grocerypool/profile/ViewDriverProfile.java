@@ -1,5 +1,6 @@
 package com.it326.grocerypool.profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -9,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.it326.grocerypool.R;
+import com.it326.grocerypool.messaging.PrivateMessagesActivity;
 
 public class ViewDriverProfile extends AppCompatActivity {
 
@@ -25,7 +27,7 @@ public class ViewDriverProfile extends AppCompatActivity {
         sendmess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                startActivity(new Intent(ViewDriverProfile.this, PrivateMessagesActivity.class));
             }
         });
     }
