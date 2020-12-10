@@ -30,6 +30,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".profile.DriverProfile">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.OPENABLE" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".profile.ViewDriverProfile">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.OPENABLE" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".profile.ViewRiderProfile">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.OPENABLE" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".profile.RiderProfile">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.OPENABLE" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
